@@ -1,3 +1,42 @@
+-- Table creation
+CREATE DATABASE sql_project_1;
+
+CREATE TABLE retail_sale
+(
+    transactions_id INT PRIMARY KEY,
+    sale_date DATE,	
+    sale_time TIME,
+    customer_id INT,	
+    gender VARCHAR(10),
+    age INT,
+    category VARCHAR(35),
+    quantity INT,
+    price_per_unit FLOAT,	
+    cogs FLOAT,
+    total_sale FLOAT
+);
+
+--Data eploration and cleaning
+
+SELECT COUNT(*) FROM retail_sale;
+SELECT COUNT(DISTINCT customer_id) FROM retail_sale;
+SELECT DISTINCT category FROM retail_sale;
+
+SELECT * FROM retail_sale
+WHERE 
+    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
+    gender IS NULL OR age IS NULL OR category IS NULL OR 
+    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+
+DELETE FROM retail_sale
+WHERE 
+    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
+    gender IS NULL OR age IS NULL OR category IS NULL OR 
+    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+
+
+--Data analysis and findings
+
 select * from retail_sale
 
 -- q1 write a sql query to find out all the coloumns for sale made on '2022-11-05'
